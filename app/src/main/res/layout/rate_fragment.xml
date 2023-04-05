@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/flRateRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_transparent_dark_90">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRate"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shapre_bg_app_primary_corner_6"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tvRateTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_12"
+                android:ellipsize="end"
+                android:fontFamily="@font/svn_medium"
+                android:maxLines="1"
+                android:padding="@dimen/dimen_14"
+                android:text="@string/rate"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_text_size_18"
+                app:layout_constraintEnd_toStartOf="@+id/ivRateClose"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivRateClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_6"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:padding="@dimen/dimen_6"
+                android:src="@drawable/ic_white_close"
+                app:layout_constraintBottom_toBottomOf="@id/tvRateTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvRateTitle" />
+
+            <LinearLayout
+                android:id="@+id/llRateInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRateTitle">
+
+                <ImageView
+                    android:id="@+id/ivRateRemoveStar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/dimen_14"
+                    android:src="@drawable/ic_black_remove" />
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/arbRateStar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_12"
+                    android:numStars="5"
+                    android:progressBackgroundTint="@color/white"
+                    android:rating="0"
+                    android:stepSize="1"
+                    android:theme="@style/RatingBar" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvRateDone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:layout_marginEnd="@dimen/dimen_12"
+                android:layout_marginBottom="@dimen/dimen_30"
+                android:background="@drawable/shape_bg_white_stroke_blue_corner_4"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/svn_medium"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:paddingHorizontal="@dimen/dimen_16"
+                android:paddingVertical="@dimen/dimen_8"
+                android:text="@string/done"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_text_size_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llRateInput" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

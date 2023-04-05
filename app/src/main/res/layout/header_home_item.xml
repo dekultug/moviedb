@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_primary">
+
+        <ImageView
+            android:id="@+id/ivHeaderHome"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_300"
+            android:src="@drawable/img_header"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvHeaderHomeWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginStart="@dimen/dimen_14"
+            android:text="@string/welcom"
+            android:textColor="@color/white"
+            android:fontFamily="@font/svn_bold"
+            android:textSize="@dimen/dimen_text_size_28"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcom_content"
+            android:textColor="@color/white"
+            android:fontFamily="@font/svn_medium"
+            android:textSize="@dimen/dimen_text_size_18"
+            android:lineSpacingExtra="@dimen/dimen_4"
+            app:layout_constraintStart_toStartOf="@id/tvHeaderHomeWelcome"
+            app:layout_constraintTop_toBottomOf="@id/tvHeaderHomeWelcome"/>
+
+        <com.example.themoviedatabase.presentation.widget.searchview.SearchView
+            android:id="@+id/svHeaderHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_20"
+            app:layout_constraintBottom_toBottomOf="@+id/ivHeaderHome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

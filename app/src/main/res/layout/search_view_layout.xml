@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_46"
+    tools:background="@color/app_primary">
+
+    <EditText
+        android:id="@+id/edtSearchView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/dimen_14"
+        android:background="@drawable/shape_bg_white_corner_22"
+        android:hint="@string/search"
+        android:paddingHorizontal="@dimen/dimen_12"
+        android:paddingVertical="@dimen/dimen_6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSearchView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/dimen_22"
+        android:paddingVertical="@dimen/dimen_6"
+        android:background="@drawable/shape_bg_gradient_search_corner_22"
+        android:foreground="@drawable/selector_ripple_rectangle_transparent_corner_18"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/svn_medium"
+        android:gravity="center_vertical"
+        android:text="@string/_search"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_text_size_16"
+        app:layout_constraintBottom_toBottomOf="@id/edtSearchView"
+        app:layout_constraintEnd_toEndOf="@id/edtSearchView"
+        app:layout_constraintTop_toTopOf="@id/edtSearchView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

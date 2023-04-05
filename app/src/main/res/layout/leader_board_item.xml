@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivLeaderBoardAvatar"
+            android:layout_width="@dimen/dimen_60"
+            android:layout_height="@dimen/dimen_60"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CircleImageView"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvLeaderBoardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginTop="@dimen/dimen_4"
+            android:fontFamily="@font/svn_medium"
+            android:textColor="@color/app_primary"
+            android:textSize="@dimen/dimen_text_size_14"
+            app:layout_constraintStart_toEndOf="@id/ivLeaderBoardAvatar"
+            app:layout_constraintTop_toTopOf="@id/ivLeaderBoardAvatar"
+            tools:text="Luu Van Tung" />
+
+        <TextView
+            android:id="@+id/tvLeaderBoardExp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/svn_medium"
+            android:textColor="@color/app_primary"
+            android:textSize="@dimen/dimen_text_size_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/pbLeaderBoardExp"
+            app:layout_constraintBottom_toBottomOf="@id/pbLeaderBoardExp"
+            tools:text="40000000" />
+
+
+        <ProgressBar
+            android:id="@+id/pbLeaderBoardExp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:indeterminate="false"
+            android:max="100"
+            android:layout_marginEnd="@dimen/dimen_8"
+            app:layout_constraintBottom_toBottomOf="@id/ivLeaderBoardAvatar"
+            app:layout_constraintTop_toBottomOf="@id/tvLeaderBoardName"
+            android:progressDrawable="@drawable/bg_progress_bar_level_default"
+            app:layout_constraintEnd_toStartOf="@id/tvLeaderBoardExp"
+            app:layout_constraintStart_toStartOf="@id/tvLeaderBoardName"
+            tools:progress="90" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

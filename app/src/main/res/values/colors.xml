@@ -10,5 +10,9 @@
     
     // start
     <color name="app_primary">#031d33</color>
-    
+    <color name="color_text_logo">#89CCA4</color>
+    <color name="gray">#847B72</color>
+    <color name="color_transparent_dark_90">#4D000000</color>
+    <color name="rating_active">#FFC804</color>
+
 </resources>

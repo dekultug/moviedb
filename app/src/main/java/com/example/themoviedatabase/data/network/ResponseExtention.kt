@@ -7,14 +7,15 @@ import retrofit2.Call
 import java.net.UnknownHostException
 
 fun <RESPONSE : IApiResponse, RETURN_VALUE> Call<RESPONSE>.invokeApi(
-    block: (Headers, RESPONSE) -> RETURN_VALUE
+    block: (Headers, RESPONSE, String) -> RETURN_VALUE
 ): RETURN_VALUE {
     try {
         val response = this.execute()
+        val json = response.body().toString()
         if (response.isSuccessful) {
             val body: RESPONSE? = response.body()
             if (body != null) {
-                return block(response.headers(), body)
+                return block(response.headers(), body,json)
             }
         }
         throw  ExceptionHelper.throwException(response)

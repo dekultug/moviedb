@@ -9,8 +9,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.themoviedatabase.common.DataPage
-import com.example.themoviedatabase.common.component.BaseBindingActivity
-import com.example.themoviedatabase.common.component.BaseBindingFragment
+import com.example.themoviedatabase.base.component.BaseBindingActivity
+import com.example.themoviedatabase.base.component.BaseBindingFragment
 import com.example.themoviedatabase.common.thread.UI_STATE
 import com.example.themoviedatabase.common.loader.LoaderFactory
 import com.example.themoviedatabase.presentation.model.IViewListener
@@ -44,10 +44,14 @@ fun <DATA> MutableStateFlow<FlowResult<DATA>>.initial() {
     this.value = FlowResult.newInstance<DATA>().initial()
 }
 
-fun <T> getDataPage(dataPage: DataPage<T>?): DataPage<T> {
+fun <T> getDataPage(dataPage: DataPage<T>?, isReload: Boolean = true): DataPage<T> {
     var _dataPage = dataPage
     if (_dataPage == null) {
         _dataPage = DataPage()
+    } else {
+        if (isReload) {
+            _dataPage.reset()
+        }
     }
     return _dataPage
 }

@@ -2,12 +2,11 @@ package com.example.themoviedatabase.common
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
-import android.graphics.Insets
-import android.graphics.Typeface
+import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.SpannableString
+import android.text.TextPaint
 import android.util.DisplayMetrics
 import android.view.View
 import android.view.WindowInsets
@@ -18,6 +17,7 @@ import androidx.annotation.*
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
+
 
 fun View.setOnSafeClick(
     delayBetweenClicks: Long = DEFAULT_DEBOUNCE_INTERVAL,
@@ -176,4 +176,20 @@ fun Activity.getScreenHeight(): Int {
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         displayMetrics.heightPixels
     }
+}
+
+fun TextView.gradientApp(text: String?) {
+    val paint: TextPaint = this.getPaint()
+    var width = 0f
+
+    if (text != null) {
+        width = paint.measureText(text)
+    }
+
+    val textShader: Shader = LinearGradient(0f, 0f, width, this.textSize, intArrayOf(
+        Color.parseColor("#71B296"),
+        Color.parseColor("#57CABB"),
+        Color.parseColor("#21B9B5"),
+        Color.parseColor("#066386")), null, Shader.TileMode.CLAMP)
+    this.paint.shader = textShader
 }

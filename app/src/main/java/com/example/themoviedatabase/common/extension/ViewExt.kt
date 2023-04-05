@@ -15,8 +15,11 @@ import android.widget.TextView
 import androidx.annotation.*
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import com.example.themoviedatabase.AppConfig
 import com.example.themoviedatabase.common.DEFAULT_DEBOUNCE_INTERVAL
 import com.example.themoviedatabase.common.DebouncedOnClickListener
+import java.util.*
+import kotlin.reflect.full.memberProperties
 
 
 fun View.setOnSafeClick(
@@ -147,4 +150,30 @@ fun String.addToken(token: String?): String {
     } else {
         STRING_DEFAULT
     }
+}
+
+fun String.allow(): String {
+    return this + AppConfig.PERMISSION_ALLOW
+}
+
+fun String.deny(): String {
+    return this + AppConfig.PERMISSION_DENY
+}
+
+fun String.domainLinkImage(): String {
+    return AppConfig.DOMAIN_LINK_IMAGE + this
+}
+
+fun String.getFirstString(): String {
+    return this.first().toString().uppercase(Locale.getDefault())
+}
+
+@Throws(IllegalAccessException::class, ClassCastException::class)
+inline fun <reified T> Any.getField(fieldName: String): T? {
+    this::class.memberProperties.forEach { kCallable ->
+        if (fieldName == kCallable.name) {
+            return kCallable.getter.call(this) as T?
+        }
+    }
+    return null
 }

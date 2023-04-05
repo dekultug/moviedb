@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="FilterView">
+
+        <attr name="fv_type" format="enum">
+
+            <enum name="TRENDING" value="0"/>
+            <enum name="LATEST_TRAINER" value="1"/>
+            <enum name="POPULAR" value="2"/>
+
+        </attr>
+
+    </declare-styleable>
+
+</resources>

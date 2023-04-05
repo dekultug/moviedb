@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StyleShapeableImageViewCorner8" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/dimen_8</item>
+    </style>
+
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/gray</item>
+        <item name="colorControlActivated">@color/rating_active</item>
+    </style>
+
+    <style name="CircleImageView">
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>
