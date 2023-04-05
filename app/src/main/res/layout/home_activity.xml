@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.home.HomeActivity">
+
+        <TextView
+            android:id="@+id/tvHomeHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_primary"
+            android:elevation="@dimen/dimen_10"
+            android:fontFamily="@font/svn_bold"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dimen_10"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_text_size_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHomeAccount"
+            android:layout_width="@dimen/dimen_40"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginEnd="@dimen/dimen_12"
+            android:background="@drawable/shape_bg_white_oval"
+            android:clickable="true"
+            android:elevation="@dimen/dimen_10"
+            android:focusable="true"
+            android:fontFamily="@font/svn_medium"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:textColor="@color/app_primary"
+            android:textSize="@dimen/dimen_text_size_12"
+            app:layout_constraintBottom_toBottomOf="@id/tvHomeHeader"
+            app:layout_constraintEnd_toEndOf="@id/tvHomeHeader"
+            app:layout_constraintTop_toTopOf="@id/tvHomeHeader"
+            tools:text="L" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHomeHeader">
+
+            <FrameLayout
+                android:id="@+id/flHomeRoot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clHomeSub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvHomeHeader">
+
+                    <ImageView
+                        android:id="@+id/ivHomeHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_300"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_header"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvHomeWelcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_14"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/svn_bold"
+                        android:text="@string/welcom"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_text_size_28"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/ivHomeHeader" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/svn_medium"
+                        android:lineSpacingExtra="@dimen/dimen_4"
+                        android:text="@string/welcom_content"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_text_size_18"
+                        app:layout_constraintStart_toStartOf="@id/tvHomeWelcome"
+                        app:layout_constraintTop_toBottomOf="@id/tvHomeWelcome" />
+
+                    <com.example.themoviedatabase.presentation.widget.searchview.SearchView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_20"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivHomeHeader"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvHomeMovie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_16"
+                        android:fontFamily="@font/svn_bold"
+                        android:paddingHorizontal="@dimen/dimen_14"
+                        android:paddingVertical="@dimen/dimen_4"
+                        android:text="@string/movie"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_text_size_16"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivHomeHeader" />
+
+                    <com.example.themoviedatabase.presentation.widget.filter.FilterView
+                        android:id="@+id/fvHomeMovie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:elevation="@dimen/dimen_10"
+                        app:layout_constraintStart_toEndOf="@id/tvHomeMovie"
+                        app:layout_constraintTop_toTopOf="@id/tvHomeMovie" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvHomeMovie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        app:layout_constraintTop_toBottomOf="@id/tvHomeMovie" />
+
+                    <TextView
+                        android:id="@+id/tvHomeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_22"
+                        android:fontFamily="@font/svn_bold"
+                        android:paddingHorizontal="@dimen/dimen_14"
+                        android:paddingVertical="@dimen/dimen_4"
+                        android:text="@string/on_tv"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_text_size_16"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rvHomeMovie" />
+
+                    <com.example.themoviedatabase.presentation.widget.filter.FilterView
+                        android:id="@+id/fvHomeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:elevation="@dimen/dimen_10"
+                        app:layout_constraintStart_toEndOf="@id/tvHomeTv"
+                        app:layout_constraintTop_toTopOf="@id/tvHomeTv" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvHomeTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        app:layout_constraintTop_toBottomOf="@id/tvHomeTv" />
+
+                    <TextView
+                        android:id="@+id/tvHomeLeaderBoard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_22"
+                        android:fontFamily="@font/svn_bold"
+                        android:paddingHorizontal="@dimen/dimen_14"
+                        android:paddingVertical="@dimen/dimen_4"
+                        android:text="@string/leader_board"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_text_size_16"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rvHomeTv" />
+
+                    <ImageView
+                        android:id="@+id/ivHomeLeaderBoardIc"
+                        android:layout_width="@dimen/dimen_10"
+                        android:layout_height="@dimen/dimen_10"
+                        android:layout_marginStart="@dimen/dimen_8"
+                        android:background="@drawable/shape_bg_gradient_search_corner_16"
+                        app:layout_constraintBottom_toBottomOf="@id/tvHomeLeaderBoard"
+                        app:layout_constraintStart_toEndOf="@id/tvHomeLeaderBoard"
+                        app:layout_constraintTop_toTopOf="@id/tvHomeLeaderBoard" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/svn_regular"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:text="All Time Edit"
+                        android:textColor="@color/app_primary"
+                        android:textSize="@dimen/dimen_text_size_12"
+                        app:layout_constraintBottom_toBottomOf="@id/tvHomeLeaderBoard"
+                        app:layout_constraintStart_toEndOf="@id/ivHomeLeaderBoardIc"
+                        app:layout_constraintTop_toTopOf="@id/tvHomeLeaderBoard" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvHomeLeaderBoard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvHomeLeaderBoard" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

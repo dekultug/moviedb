@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvFilterTrending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/svn_regular"
+            android:paddingHorizontal="@dimen/dimen_14"
+            android:paddingVertical="@dimen/dimen_4"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_text_size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.themoviedatabase.presentation.widget.filter.FilterView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            app:fv_type="TRENDING"
+            app:layout_constraintBottom_toBottomOf="@id/tvFilterTrending"
+            app:layout_constraintStart_toEndOf="@id/tvFilterTrending"
+            app:layout_constraintTop_toTopOf="@id/tvFilterTrending" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

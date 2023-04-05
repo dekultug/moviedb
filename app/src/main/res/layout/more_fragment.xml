@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/flMore"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_transparent_dark_90"
+        tools:context=".presentation.home.more.MoreFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clMore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_bg_white_corner_top_8"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tvMoreTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_12"
+                android:fontFamily="@font/svn_semi_bold"
+                android:paddingVertical="@dimen/dimen_10"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginTop="@dimen/dimen_6"
+                android:textColor="@color/app_primary"
+                android:textSize="@dimen/dimen_text_size_16"
+                app:layout_constraintEnd_toStartOf="@+id/ivMoreClose"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" />
+
+            <ImageView
+                android:id="@+id/ivMoreClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_black_close"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toTopOf="@id/tvMoreTitle"
+                app:layout_constraintBottom_toBottomOf="@id/tvMoreTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/dimen_10"/>
+
+            <View
+                android:id="@+id/vMoreTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toTopOf="@id/llMoreAddToList"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/llMoreAddToList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="@dimen/dimen_6"
+                app:layout_constraintTop_toBottomOf="@id/tvMoreTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14"
+                    android:src="@drawable/ic_list" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_12"
+                    android:fontFamily="@font/svn_medium"
+                    android:text="@string/add_to_list"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_text_size_16" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/vMoreAddToList"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/llMoreAddToList"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/llMoreFavourite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/vMoreAddToList"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivMoreFavourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14"
+                    android:src="@drawable/ic_black_heart" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_12"
+                    android:fontFamily="@font/svn_medium"
+                    android:text="@string/favorite"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_text_size_16" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/vMoreFavourite"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/llMoreFavourite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/llMoreWatchList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@id/vMoreFavourite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivMoreWatchList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14"
+                    android:src="@drawable/ic_black_save" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_12"
+                    android:fontFamily="@font/svn_medium"
+                    android:text="@string/watch_list"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_text_size_16" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/vMoreWatchList"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/llMoreWatchList"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/llMoreRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@id/vMoreWatchList"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivMoreRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14"
+                    android:src="@drawable/ic_black_rate" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_12"
+                    android:fontFamily="@font/svn_medium"
+                    android:text="@string/your_rating"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_text_size_16" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</layout>

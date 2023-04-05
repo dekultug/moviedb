@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/flCreateList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_transparent_dark_90">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCreateList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_bg_white_corner_top_8">
+
+            <TextView
+                android:id="@+id/tvCreateListHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/svn_semi_bold"
+                android:padding="@dimen/dimen_10"
+                android:text="@string/create_new_list"
+                android:textColor="@color/app_primary"
+                android:textSize="@dimen/dimen_text_size_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivCreateListClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:padding="@dimen/dimen_10"
+                android:src="@drawable/ic_black_close"
+                app:layout_constraintBottom_toBottomOf="@id/tvCreateListHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvCreateListHeader" />
+
+            <TextView
+                android:id="@+id/tvCreateListName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:fontFamily="@font/svn_medium"
+                android:text="Name"
+                android:textColor="@color/app_primary"
+                android:textSize="@dimen/dimen_text_size_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCreateListHeader" />
+
+            <EditText
+                android:id="@+id/edtCreateListName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_16"
+                android:background="@drawable/shape_bg_white_stroke_blue_corner_4"
+                android:padding="@dimen/dimen_10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCreateListName" />
+
+            <TextView
+                android:id="@+id/tvCreateListDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:fontFamily="@font/svn_medium"
+                android:text="Description"
+                android:textColor="@color/app_primary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edtCreateListName" />
+
+            <EditText
+                android:id="@+id/edtCreateListDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_16"
+                android:background="@drawable/shape_bg_white_stroke_blue_corner_4"
+                android:padding="@dimen/dimen_10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCreateListDescription" />
+
+            <TextView
+                android:id="@+id/tvCreateListDone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/shapre_bg_app_primary_corner_6"
+                android:fontFamily="@font/svn_medium"
+                android:paddingHorizontal="@dimen/dimen_16"
+                android:paddingVertical="@dimen/dimen_6"
+                android:text="Create"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_text_size_14"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/edtCreateListDescription"
+                app:layout_constraintTop_toBottomOf="@id/edtCreateListDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</layout>

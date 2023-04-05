@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAddToList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#01b4e4">
+
+        <LinearLayout
+            android:id="@+id/llAddToListCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_12"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/dimen_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_12"
+                android:src="@drawable/ic_white_add" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_6"
+                android:fontFamily="@font/svn_bold"
+                android:text="@string/create_new_list"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_text_size_16" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivAddToListClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_10"
+            android:src="@drawable/ic_white_close"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/llAddToListCreate"
+            app:layout_constraintBottom_toBottomOf="@id/llAddToListCreate"/>
+
+        <TextView
+            android:id="@+id/tvAddToListSelectList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_12"
+            android:layout_marginTop="@dimen/dimen_12"
+            android:paddingHorizontal="@dimen/dimen_10"
+            android:paddingVertical="@dimen/dimen_10"
+            android:fontFamily="@font/svn_medium"
+            android:background="@drawable/shapre_bg_app_primary_corner_6"
+            android:text="@string/add_to_one_of_your_list"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_text_size_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llAddToListCreate" />
+        
+            <LinearLayout
+                android:id="@+id/llAddToListCreated"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:background="@drawable/shape_bg_white_corne_8"
+                app:layout_constraintTop_toBottomOf="@id/tvAddToListSelectList"
+                app:layout_constraintStart_toStartOf="@id/tvAddToListSelectList"
+                app:layout_constraintEnd_toEndOf="@id/tvAddToListSelectList">
+
+                <com.example.themoviedatabase.presentation.widget.searchview.SearchViewBasic
+                    android:id="@+id/svbAddToList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_12"
+                    android:layout_marginHorizontal="@dimen/dimen_12"/>
+
+                <TextView
+                    android:id="@+id/tvAddToListSelect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:layout_marginHorizontal="@dimen/dimen_12"
+                    android:layout_gravity="center|right"
+                    android:foreground="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@color/gray"
+                    android:fontFamily="@font/svn_medium"
+                    android:paddingHorizontal="@dimen/dimen_16"
+                    android:paddingVertical="@dimen/dimen_6"
+                    android:text="Select"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_text_size_14" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAddToListListOfYou"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_12"/>
+
+                <TextView
+                    android:id="@+id/tvAddToListNoData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bạn chưa tạo list nào"
+                    android:textColor="@color/app_primary"
+                    android:fontFamily="@font/svn_medium"
+                    android:visibility="gone"
+                    android:textSize="@dimen/dimen_text_size_14"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dimen_10"/>
+
+            </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivAddToList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_add_to_list"
+            android:visibility="visible"
+            tools:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tvAddToListSelectList"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

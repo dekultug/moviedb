@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/dimen_300"
+        android:paddingHorizontal="@dimen/dimen_12"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:gravity="center">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/svn_medium"
+                android:paddingHorizontal="@dimen/dimen_12"
+                android:paddingVertical="@dimen/dimen_4"
+                android:text="@string/more"
+                android:textColor="@color/app_primary"
+                android:textSize="@dimen/dimen_text_size_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_10"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_black_next"
+                app:layout_constraintEnd_toEndOf="@id/textView"
+                app:layout_constraintStart_toStartOf="@id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</layout>

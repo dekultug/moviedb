@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:minHeight="@dimen/dimen_300">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivTrending"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="@dimen/dimen_180"
+            android:layout_margin="@dimen/dimen_6"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/StyleShapeableImageViewCorner8"
+            tools:src="@tools:sample/avatars" />
+
+        <com.example.themoviedatabase.presentation.widget.progress.CircleProgress
+            android:id="@+id/cPTrendingUserScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            app:layout_constraintBottom_toBottomOf="@id/ivTrending"
+            app:layout_constraintStart_toStartOf="@id/ivTrending"
+            app:layout_constraintTop_toBottomOf="@id/ivTrending" />
+
+        <TextView
+            android:id="@+id/tvTrendingName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_12"
+            android:ellipsize="end"
+            android:fontFamily="@font/svn_medium"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_text_size_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/ivTrending"
+            app:layout_constraintTop_toBottomOf="@id/cPTrendingUserScore"
+            tools:text="Api - Android Api - Android" />
+
+        <TextView
+            android:id="@+id/tvTrendingDateRelease"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/svn_medium"
+            android:maxLines="2"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/dimen_text_size_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvTrendingName"
+            app:layout_constraintTop_toBottomOf="@id/tvTrendingName"
+            tools:text="Mar 26,2003 Mar 26,2003" />
+
+        <ImageView
+            android:id="@+id/ivTrendingMore"
+            android:layout_width="@dimen/dimen_22"
+            android:layout_height="@dimen/dimen_22"
+            android:layout_marginTop="@dimen/dimen_2"
+            android:layout_marginEnd="@dimen/dimen_2"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:padding="@dimen/dimen_2"
+            android:src="@drawable/ic_more"
+            app:layout_constraintEnd_toEndOf="@id/ivTrending"
+            app:layout_constraintTop_toTopOf="@id/ivTrending" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

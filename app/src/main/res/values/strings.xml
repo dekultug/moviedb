@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">TheMovieDB</string>
+    <string name="permission_login">Vui lòng cấp quyền để sử dụng app</string>
+    <string name="welcom">Welcome.</string>
+    <string name="welcom_content">Millions of movies, TV\nshows and people to\ndiscover. Explore now.</string>
+    <string name="search">Search...</string>
+    <string name="_search">Search</string>
+    <string name="today">Today</string>
+    <string name="this_weekend">This Week</string>
+    <string name="on_tv">On TV</string>
+    <string name="in_theaters">In Theaters</string>
+    <string name="movie">Movie</string>
+    <string name="more">View More</string>
+    <string name="day">day</string>
+    <string name="week">week</string>
+
+    <string name="add_to_list">Add to list</string>
+    <string name="favorite">Favorite</string>
+    <string name="watch_list">Watchlist</string>
+    <string name="your_rating">Your Rating</string>
+    <string name="create_new_list">Create New List</string>
+    <string name="add_to_one_of_your_list">Add to one of your list...</string>
+    <string name="size_of_list">(%s item)</string>
+    <string name="rate">Rate - %s</string>
+    <string name="done">Done</string>
+
+    // media type trending
+    <string name="_movie">movie</string>
+    <string name="_tv">tv</string>
+    <string name="_personal">person</string>
+    <string name="leader_board">Leader Board</string>
+
 </resources>

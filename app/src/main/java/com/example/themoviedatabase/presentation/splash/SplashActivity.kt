@@ -1,14 +1,13 @@
 package com.example.themoviedatabase.presentation.splash
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
+import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.themoviedatabase.AppConfig
 import com.example.themoviedatabase.R
-import com.example.themoviedatabase.common.component.BaseBindingActivity
-import com.example.themoviedatabase.common.extension.addToken
+import com.example.themoviedatabase.base.component.BaseBindingActivity
 import com.example.themoviedatabase.databinding.SplashActvityBinding
+import com.example.themoviedatabase.presentation.prevuseapp.PrevActivity
 import com.example.themoviedatabase.presentation.model.IViewListener
 import coroutinesLaunch
 import handleUiState
@@ -19,7 +18,7 @@ import kotlinx.coroutines.launch
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseBindingActivity<SplashActvityBinding>(R.layout.splash_actvity) {
 
-    private val viewModel by lazy { SplashViewModel() }
+    private val viewModel by viewModels<SplashViewModel>()
 
     override fun onInitView() {
         super.onInitView()
@@ -36,14 +35,11 @@ class SplashActivity : BaseBindingActivity<SplashActvityBinding>(R.layout.splash
             handleUiState(it, object : IViewListener {
                 override fun onSuccess() {
                     if (it.data != null) {
-                        AppConfig.token = it.data!!
-                        val intent = Intent(Intent.ACTION_VIEW)
-                        intent.data = Uri.parse(AppConfig.URL_PERMISSION.addToken(it.data!!.requestToken))
-                        startActivity(intent)
+                        AppConfig.tokenResponse = it.data!!
+                        navigateTo(PrevActivity::class.java)
                     }
                 }
             })
         }
-
     }
 }
