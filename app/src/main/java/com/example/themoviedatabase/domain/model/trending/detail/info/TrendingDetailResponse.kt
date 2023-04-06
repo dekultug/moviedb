@@ -52,6 +52,10 @@ data class TrendingDetailResponse(
     @Expose
     var originalTitle: String? = null,
 
+    @SerializedName("name")
+    @Expose
+    var name: String? = null,
+
     @SerializedName("overview")
     @Expose
     var overview: String? = null,
@@ -75,6 +79,11 @@ data class TrendingDetailResponse(
     @SerializedName("release_date")
     @Expose
     var releaseDate: String? = null,
+
+    @SerializedName("first_air_date")
+    @Expose
+    var firstAirDate: String? = null,
+
 
     @SerializedName("revenue")
     @Expose
@@ -121,18 +130,18 @@ data class TrendingDetailResponse(
     }
 
     fun getNameTrending(): String {
-        return originalTitle ?: title ?: STRING_DEFAULT
+        return originalTitle ?: title ?: name ?: STRING_DEFAULT
     }
 
     fun getProgressUserScore(): Int {
         return if (voteAverage != null) {
-            (voteAverage!! *  10).toInt()
+            (voteAverage!! * 10).toInt()
         } else {
             INT_DEFAULT
         }
     }
 
     fun getActiveDate(): String {
-        return releaseDate ?: STRING_DEFAULT
+        return releaseDate ?: firstAirDate ?: STRING_DEFAULT
     }
 }

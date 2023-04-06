@@ -7,6 +7,7 @@ import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.themoviedatabase.R
 import com.example.themoviedatabase.base.component.BaseBindingActivity
+import com.example.themoviedatabase.common.INT_DEFAULT
 import com.example.themoviedatabase.common.event.RateMovieSuccess
 import com.example.themoviedatabase.common.setOnSafeClick
 import com.example.themoviedatabase.databinding.DetailActivityBinding
@@ -36,13 +37,16 @@ class DetailActivity : BaseBindingActivity<DetailActivityBinding>(R.layout.detai
         viewModel.idTrending = intent?.getParcelableExtra(ITEM_TRENDING_KEY)
         viewModel.itemMovie = viewModel.idTrending
 
-        viewModel.idTrending?.id?.let { id ->
-            viewModel.getDetailTrending(id)
-        }
-
+        Log.d(TAG, "onPrepareInitView: ${viewModel.itemMovie?.mediaType}")
         when (viewModel.itemMovie?.mediaType) {
-            getString(R.string._movie) -> viewModel.getStateMovie()
-            getString(R.string._tv) -> viewModel.getStateTv()
+            getString(R.string._movie) -> {
+                viewModel.getStateMovie()
+                viewModel.getDetailMovieTrending(viewModel.itemMovie?.id?: INT_DEFAULT)
+            }
+            getString(R.string._tv) ->{
+                viewModel.getStateTv()
+                viewModel.getDetailTvTrending(viewModel.itemMovie?.id?: INT_DEFAULT)
+            }
         }
     }
 
@@ -86,7 +90,15 @@ class DetailActivity : BaseBindingActivity<DetailActivityBinding>(R.layout.detai
 
     override fun onObserverViewModel() {
         super.onObserverViewModel()
-        coroutinesLaunch(viewModel.detailTrendingState) {
+        coroutinesLaunch(viewModel.detailMovieTrendingState) {
+            handleUiState(it, object : IViewListener {
+                override fun onSuccess() {
+                    adapter.submitList(it.data)
+                }
+            })
+        }
+
+        coroutinesLaunch(viewModel.detailTvTrendingState) {
             handleUiState(it, object : IViewListener {
                 override fun onSuccess() {
                     adapter.submitList(it.data)
@@ -95,6 +107,17 @@ class DetailActivity : BaseBindingActivity<DetailActivityBinding>(R.layout.detai
         }
 
         coroutinesLaunch(viewModel.movieState) {
+            handleUiState(it, object : IViewListener {
+                override fun onSuccess() {
+                    if (it.data != null) {
+                        updateUI(it.data!!)
+                        canInputUser()
+                    }
+                }
+            })
+        }
+
+        coroutinesLaunch(viewModel.tvState) {
             handleUiState(it, object : IViewListener {
                 override fun onSuccess() {
                     if (it.data != null) {

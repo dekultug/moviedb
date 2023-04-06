@@ -1,14 +1,8 @@
 package com.example.themoviedatabase.presentation.detail
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.example.themoviedatabase.base.BaseViewModel
 import com.example.themoviedatabase.common.thread.FlowResult
-import com.example.themoviedatabase.domain.model.trending.detail.actor.ActorResponse
 import com.example.themoviedatabase.domain.model.trending.detail.info.BelongsToCollection
-import com.example.themoviedatabase.domain.model.trending.detail.info.TrendingDetailResponse
-import com.example.themoviedatabase.domain.model.trending.detail.recommend.RecommendResponse
-import com.example.themoviedatabase.domain.model.trending.detail.review.UserReviewResponse
 import com.example.themoviedatabase.domain.model.trending.movie.TrendingResponse
 import com.example.themoviedatabase.factory.RepoFactory
 import com.example.themoviedatabase.presentation.home.more.MoreViewModel
@@ -22,10 +16,14 @@ import success
 
 class DetailViewModel : MoreViewModel() {
 
-    private var _detailTrendingState = MutableStateFlow(FlowResult.newInstance<List<Any>>())
-    val detailTrendingState = _detailTrendingState.asStateFlow()
+    private var _detailMovieTrendingState = MutableStateFlow(FlowResult.newInstance<List<Any>>())
+    val detailMovieTrendingState = _detailMovieTrendingState.asStateFlow()
 
-    private var repo = RepoFactory.getMovieImpl()
+    private var _detailTvTrendingState = MutableStateFlow(FlowResult.newInstance<List<Any>>())
+    val detailTvTrendingState = _detailTvTrendingState.asStateFlow()
+
+    private var repoMovie = RepoFactory.getMovieImpl()
+    private var repoTv = RepoFactory.getTvImpl()
 
     private var dataOfPartTrending: BelongsToCollection? = null
 
@@ -35,14 +33,14 @@ class DetailViewModel : MoreViewModel() {
 
     }
 
-    fun getDetailTrending(id: Int) {
+    fun getDetailMovieTrending(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val list = mutableListOf<Any>()
 
             // info
-            repo.getDetailMovieTrending(id)
+            repoMovie.getDetailMovieTrending(id)
                 .onException {
-                    _detailTrendingState.failure(it)
+                    _detailMovieTrendingState.failure(it)
                 }
                 .collect {
                     dataOfPartTrending = it.belongsToCollection
@@ -50,18 +48,18 @@ class DetailViewModel : MoreViewModel() {
                 }
 
             // actor
-            repo.getActorInTrending(id)
+            repoMovie.getActorInTrending(id)
                 .onException {
-                    _detailTrendingState.failure(it)
+                    _detailMovieTrendingState.failure(it)
                 }
                 .collect {
                     list.add(it)
                 }
 
             // review
-            repo.getListReview(id)
+            repoMovie.getListReview(id)
                 .onException {
-                    _detailTrendingState.failure(it)
+                    _detailMovieTrendingState.failure(it)
                 }
                 .collect {
                     list.add(it)
@@ -73,15 +71,65 @@ class DetailViewModel : MoreViewModel() {
             }
 
             // recommend
-            repo.getRecommendTrending(id)
+            repoMovie.getRecommendTrending(id)
                 .onException {
-                    _detailTrendingState.failure(it)
+                    _detailMovieTrendingState.failure(it)
                 }
                 .collect {
                     list.add(it)
                 }
 
-            _detailTrendingState.success(list)
+            _detailMovieTrendingState.success(list)
+        }
+    }
+
+    fun getDetailTvTrending(id: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            val list = mutableListOf<Any>()
+
+            // info
+            repoTv.getDetailTvTrending(id)
+                .onException {
+                    _detailTvTrendingState.failure(it)
+                }
+                .collect {
+                    dataOfPartTrending = it.belongsToCollection
+                    list.add(it)
+                }
+
+            // actor
+            repoTv.getActorTvInTrending(id)
+                .onException {
+                    _detailTvTrendingState.failure(it)
+                }
+                .collect {
+                    list.add(it)
+                }
+
+            // review
+            repoTv.getListTvReview(id)
+                .onException {
+                    _detailTvTrendingState.failure(it)
+                }
+                .collect {
+                    list.add(it)
+                }
+
+            // part of trending
+            dataOfPartTrending?.let {
+                list.add(it)
+            }
+
+            // recommend
+            repoTv.getRecommendTVTrending(id)
+                .onException {
+                    _detailTvTrendingState.failure(it)
+                }
+                .collect {
+                    list.add(it)
+                }
+
+            _detailTvTrendingState.success(list)
         }
     }
 }

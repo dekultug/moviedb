@@ -9,20 +9,20 @@ import com.example.themoviedatabase.domain.model.trending.detail.recommend.Recom
 import com.example.themoviedatabase.domain.model.trending.detail.review.UserReviewResponse
 import kotlinx.coroutines.flow.Flow
 
-interface IMovie {
+interface ITv {
 
-    fun getStateMovie(movieId: Int): Flow<StateMovie?>
+    fun getStateTv(tvId: Int): Flow<StateMovie?>
 
-    fun rateMovie(movieId: Int, rated: Rated): Flow<MovieResponse>
+    fun rateTv(tvId: Int, rated: Rated): Flow<MovieResponse>
 
-    fun deleteRate(movieId: Int): Flow<MovieResponse>
+    fun deleteTvRate(tvId: Int): Flow<MovieResponse>
 
-    fun getDetailMovieTrending(movieId: Int): Flow<TrendingDetailResponse>
+    fun getDetailTvTrending(tvId: Int): Flow<TrendingDetailResponse>
 
-    fun getActorInTrending(movieId: Int): Flow<ActorResponse>
+    fun getActorTvInTrending(tvId: Int): Flow<ActorResponse>
 
-    fun getListReview(movieId: Int): Flow<UserReviewResponse>
+    fun getListTvReview(tvId: Int): Flow<UserReviewResponse>
 
-    fun getRecommendTrending(movieId: Int): Flow<RecommendResponse>
+    fun getRecommendTVTrending(tvId: Int): Flow<RecommendResponse>
 
 }

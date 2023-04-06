@@ -80,7 +80,7 @@ class HomeActivity : BaseBindingActivity<HomeActivityBinding>(R.layout.home_acti
             }
 
             override fun onDetailTrending(item: TrendingResponse) {
-
+                navigateTo(DetailActivity::class.java, bundleOf(ITEM_TRENDING_KEY to item))
             }
         }
 
