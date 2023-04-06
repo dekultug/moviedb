@@ -14,5 +14,7 @@
     <color name="gray">#847B72</color>
     <color name="color_transparent_dark_90">#4D000000</color>
     <color name="rating_active">#FFC804</color>
+    <color name="background_detail_info">#202020</color>
+    <color name="background_detail">#1D1D1D</color>
 
 </resources>

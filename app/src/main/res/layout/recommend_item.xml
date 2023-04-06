@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivRecommendImage"
+            android:layout_width="@dimen/dimen_290"
+            android:layout_height="@dimen/dimen_160"
+            tools:src="@tools:sample/avatars"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearanceOverlay="@style/StyleShapeableImageViewCorner8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/tvRecommendName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_primary"
+            android:textSize="@dimen/dimen_text_size_14"
+            tools:text="Luu Van Tung"
+            android:padding="@dimen/dimen_10"
+            app:layout_constraintTop_toBottomOf="@id/ivRecommendImage"
+            app:layout_constraintStart_toStartOf="@id/ivRecommendImage"
+            app:layout_constraintEnd_toEndOf="@id/ivRecommendImage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/dimen_10"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

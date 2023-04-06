@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.example.themoviedatabase.R
 import com.example.themoviedatabase.common.DataPage
 import com.example.themoviedatabase.base.component.BaseBindingActivity
 import com.example.themoviedatabase.base.component.BaseBindingFragment
+import com.example.themoviedatabase.common.getAppDrawable
 import com.example.themoviedatabase.common.thread.UI_STATE
 import com.example.themoviedatabase.common.loader.LoaderFactory
 import com.example.themoviedatabase.presentation.model.IViewListener
@@ -83,7 +85,7 @@ fun ImageView.loadImage(
 }
 
 private fun getPlaceHolderDefault(): Drawable? {
-    return null
+    return getAppDrawable(R.drawable.no_img)
 }
 
 fun <T> BaseBindingActivity<*>.handleUiState(

@@ -13,6 +13,7 @@
     <string name="more">View More</string>
     <string name="day">day</string>
     <string name="week">week</string>
+    <string name="detail">Detail</string>
 
     <string name="add_to_list">Add to list</string>
     <string name="favorite">Favorite</string>
@@ -29,5 +30,22 @@
     <string name="_tv">tv</string>
     <string name="_personal">person</string>
     <string name="leader_board">Leader Board</string>
+    <string name="user_score">User Score</string>
+    <string name="play_trailer">Play Trailer</string>
 
+    <string name="second_ago">%s giây trước</string>
+    <string name="minute_ago">%s phút trước</string>
+    <string name="hour_ago">%s giờ trước</string>
+    <string name="day_ago">%s ngày trước</string>
+    <string name="week_ago">%s tuần trước</string>
+    <string name="month_ago">%s tháng trước</string>
+    <string name="year_ago">%s năm trước</string>
+    <string name="now_ago">vừa xong</string>
+    <string name="test">Một ứng dụng Android thông thường chứa nhiều thành phần ứng dụng (component), bao gồm hoạt động (activity), mảnh (fragment), dịch vụ (service), nhà cung cấp nội dung (content provider) và broadcast receiver. Bạn khai báo hầu hết các thành phần ứng dụng này trong tệp kê khai ứng dụng. Sau đó, Hệ điều hành Android sẽ sử dụng tệp này để quyết định cách tích hợp ứng dụng của bạn vào trải nghiệm người dùng tổng thể của thiết bị. Vì một ứng dụng Android thông thường có thể chứa nhiều thành phần và người dùng thường tương tác với nhiều ứng dụng trong một khoảng thời gian ngắn, các ứng dụng cần phải điều chỉnh cho phù hợp với nhiều loại quy trình công việc và thao tác do người dùng thực hiện.
+
+Xin lưu ý rằng thiết bị di động cũng bị hạn chế về tài nguyên. Do đó, bất cứ lúc nào, hệ điều hành cũng có thể xoá một số quy trình ứng dụng để tạo không gian cho các quy trình mới.</string>
+
+    <string name="part_of_the_movie">Part of the Loạt Phim\n%s</string>
+    <string name="view_the_collection">VIEW THE COLLECTION</string>
+    <string name="release_date">Release date: %s</string>
 </resources>

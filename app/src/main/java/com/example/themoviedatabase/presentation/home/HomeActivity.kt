@@ -1,6 +1,7 @@
 package com.example.themoviedatabase.presentation.home
 
 import androidx.activity.viewModels
+import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.themoviedatabase.AppConfig
@@ -10,6 +11,8 @@ import com.example.themoviedatabase.common.extension.getFirstString
 import com.example.themoviedatabase.common.getAppString
 import com.example.themoviedatabase.databinding.HomeActivityBinding
 import com.example.themoviedatabase.domain.model.trending.movie.TrendingResponse
+import com.example.themoviedatabase.presentation.detail.DetailActivity
+import com.example.themoviedatabase.presentation.detail.DetailActivity.Companion.ITEM_TRENDING_KEY
 import com.example.themoviedatabase.presentation.home.more.MoreFragment
 import com.example.themoviedatabase.presentation.home.trendingadpter.MovieAdapter
 import com.example.themoviedatabase.presentation.home.trendingadpter.PersonAdapter
@@ -64,12 +67,20 @@ class HomeActivity : BaseBindingActivity<HomeActivityBinding>(R.layout.home_acti
                 val moreFragment = MoreFragment.getInstance(item)
                 replaceFragment(moreFragment)
             }
+
+            override fun onDetailTrending(item: TrendingResponse) {
+                navigateTo(DetailActivity::class.java, bundleOf(ITEM_TRENDING_KEY to item))
+            }
         }
 
         tvAdapter.listener = object : IMoreListener {
             override fun showMoreAction(item: TrendingResponse) {
                 val moreFragment = MoreFragment.getInstance(item)
                 replaceFragment(moreFragment)
+            }
+
+            override fun onDetailTrending(item: TrendingResponse) {
+
             }
         }
 

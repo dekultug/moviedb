@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clDetailRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvDetailHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_primary"
+            android:elevation="@dimen/dimen_10"
+            android:fontFamily="@font/svn_medium"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dimen_10"
+            android:text="@string/detail"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_text_size_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivDetailHeaderBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_10"
+            android:src="@drawable/ic_white_back"
+            android:elevation="@dimen/dimen_10"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:focusable="true"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="@id/tvDetailHeader"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailHeader"
+            app:layout_constraintStart_toStartOf="@id/tvDetailHeader"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDetail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/dimen_62"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailHeader"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_60"
+            android:background="@color/app_primary"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glDetailV5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <ImageView
+                android:id="@+id/ivDetailAddToList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_list_white"
+                android:padding="@dimen/dimen_14"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/dimen_20"/>
+
+            <ImageView
+                android:id="@+id/ivDetailFavourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_14"
+                android:src="@drawable/ic_heart_white"
+                app:layout_constraintTop_toTopOf="parent"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/glDetailV5"
+                android:layout_marginEnd="@dimen/dimen_20" />
+
+            <ImageView
+                android:id="@+id/ivDetailWatchList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_save_white"
+                app:layout_constraintTop_toTopOf="parent"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/glDetailV5"
+                android:padding="@dimen/dimen_14"
+                android:layout_marginStart="@dimen/dimen_20"/>
+
+            <ImageView
+                android:id="@+id/ivDetailRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_white_rate"
+                android:padding="@dimen/dimen_14"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/dimen_20"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

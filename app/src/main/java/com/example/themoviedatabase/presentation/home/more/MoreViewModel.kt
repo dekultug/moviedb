@@ -24,7 +24,7 @@ import loading
 import onException
 import success
 
-class MoreViewModel : BaseViewModel() {
+open class MoreViewModel : BaseViewModel() {
 
     private val repoMovie = RepoFactory.getMovieImpl()
     private val repoAccount = RepoFactory.getAccountImpl()
