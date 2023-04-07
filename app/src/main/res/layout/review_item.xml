@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivReviewAvartar"
+            android:layout_width="@dimen/dimen_60"
+            android:layout_height="@dimen/dimen_60"
+            android:layout_marginStart="@dimen/dimen_16"
+            app:shapeAppearanceOverlay="@style/CircleImageView"
+            tools:src="@tools:sample/avatars"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvReviewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Luu van tung"
+            app:layout_constraintStart_toEndOf="@id/ivReviewAvartar"
+            android:textColor="@color/app_primary"
+            android:fontFamily="@font/svn_regular"
+            android:textSize="@dimen/dimen_text_size_16"
+            android:layout_margin="@dimen/dimen_4"
+            app:layout_constraintTop_toTopOf="@id/ivReviewAvartar"/>
+
+        <TextView
+            android:id="@+id/tvReviewDateCommented"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2022-12-16T06:48:15.541Z"
+            android:textColor="@color/app_primary"
+            android:fontFamily="@font/svn_regular"
+            android:textSize="@dimen/dimen_text_size_12"
+            app:layout_constraintTop_toBottomOf="@id/tvReviewName"
+            app:layout_constraintStart_toStartOf="@id/tvReviewName"/>
+
+        <TextView
+            android:id="@+id/tvReviewContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="@string/test"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:textSize="@dimen/dimen_text_size_14"
+            android:maxLines="2"
+            android:fontFamily="@font/svn_regular"
+            android:textColor="@color/app_primary"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/ivReviewAvartar"
+            app:layout_constraintStart_toStartOf="@id/ivReviewAvartar"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvReviewOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xem thêm"
+            android:textColor="@color/app_primary"
+            android:fontFamily="@font/svn_bold"
+            android:padding="@dimen/dimen_6"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:focusable="true"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:textSize="@dimen/dimen_text_size_14"
+            app:layout_constraintTop_toBottomOf="@+id/tvReviewContent"
+            app:layout_constraintEnd_toEndOf="@id/tvReviewContent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

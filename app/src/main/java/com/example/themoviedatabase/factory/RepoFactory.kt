@@ -12,6 +12,7 @@ object RepoFactory {
     private val accountImpl by lazy { AccountImpl() }
     private val listImpl by lazy { ListImpl() }
     private val movieImpl by lazy { MovieImpl() }
+    private val tvImpl by lazy { TvImpl() }
 
     fun getAuthImpl(): IAuthen {
         return authenImpl
@@ -35,5 +36,9 @@ object RepoFactory {
 
     fun getMovieImpl(): IMovie {
         return movieImpl
+    }
+
+    fun getTvImpl(): ITv{
+        return tvImpl
     }
 }

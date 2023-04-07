@@ -52,6 +52,13 @@ class MovieAdapter : BaseAdapter() {
                     listener?.showMoreAction(item)
                 }
             }
+
+            binding.root.setOnSafeClick {
+                val item = getDataAtPosition(absoluteAdapterPosition) as? TrendingResponse
+                if (item != null) {
+                    listener?.onDetailTrending(item)
+                }
+            }
         }
 
         override fun onBind(data: TrendingResponse) {

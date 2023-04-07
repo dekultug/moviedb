@@ -16,12 +16,20 @@ import kotlinx.coroutines.flow.flow
 class ListImpl : IList, BaseRepo() {
     override fun createList(createListRequest: CreateListRequest): Flow<CreateListResponse?> {
         val server = invokeService(IListServer::class.java)
-        return server.createList(createListRequest = createListRequest).invokeApi { headers, createListResponse,_ ->
-            val flow = flow {
-                emit(createListResponse)
+        val flow = flow {
+            try {
+                var response: CreateListResponse? = null
+                server.createList(createListRequest = createListRequest).invokeApi { _, body,_ ->
+                    response = body
+                }
+                if (response != null) {
+                    emit(response!!)
+                }
+            } catch (e: Exception) {
+                throw e
             }
-            flow
         }
+        return flow
     }
 
     override fun addMovie(listId: Int, movieRequest: MovieRequest): Flow<MovieResponse?> {

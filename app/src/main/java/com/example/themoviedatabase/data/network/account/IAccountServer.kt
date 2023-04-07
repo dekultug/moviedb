@@ -3,18 +3,15 @@ package com.example.themoviedatabase.data.network.account
 import com.example.themoviedatabase.AppConfig
 import com.example.themoviedatabase.data.network.ApiConfig
 import com.example.themoviedatabase.data.network.IApiService
-import com.example.themoviedatabase.domain.model.accout.AccountResponse
+import com.example.themoviedatabase.domain.model.accout.detail.AccountResponse
 import com.example.themoviedatabase.domain.model.favoutite.FavouriteRequest
+import com.example.themoviedatabase.domain.model.list.alllist.CreatedListMainResponse
 import com.example.themoviedatabase.domain.model.list.movie.MovieResponse
-import com.example.themoviedatabase.domain.model.trending.createdlist.CreatedListMainResponse
+import com.example.themoviedatabase.domain.model.trending.movie.TrendingMainResponse
+import com.example.themoviedatabase.domain.model.trending.movie.TrendingResponse
 import com.example.themoviedatabase.domain.model.watchlist.WatchListRequest
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface IAccountServer : IApiService {
 
@@ -49,4 +46,66 @@ interface IAccountServer : IApiService {
         @Query("session_id") sessionId: String = AppConfig.sessionResponse?.sessionId!!,
         @Body watchListRequest: WatchListRequest
     ): Call<MovieResponse>
+
+    // movie
+    @GET("account/{account_id}/favorite/movies")
+    fun getFavouriteList(
+        @Path("account_id") account_id: Int = AppConfig.account?.id!!,
+        @Query("api_key") apiKey: String = ApiConfig.API_KEY,
+        @Query("session_id") sessionId: String = AppConfig.sessionResponse?.sessionId!!,
+        @Query("language") language: String = "en-US",
+        @Query("sort_by") sort_by: String = "created_at.asc",
+        @Query("page") page: Int = 1
+    ): Call<TrendingMainResponse>
+
+    @GET("account/{account_id}/watchlist/movies")
+    fun getWatchList(
+        @Path("account_id") account_id: Int= AppConfig.account?.id!!,
+        @Query("api_key") apiKey: String = ApiConfig.API_KEY,
+        @Query("session_id") sessionId: String = AppConfig.sessionResponse?.sessionId!!,
+        @Query("language") language: String = "en-US",
+        @Query("sort_by") sort_by: String = "created_at.asc",
+        @Query("page") page: Int = 1
+    ): Call<TrendingMainResponse>
+
+    @GET("account/{account_id}/rated/movies")
+    fun getRateList(
+        @Path("account_id") account_id: Int= AppConfig.account?.id!!,
+        @Query("api_key") apiKey: String = ApiConfig.API_KEY,
+        @Query("session_id") sessionId: String = AppConfig.sessionResponse?.sessionId!!,
+        @Query("language") language: String = "en-US",
+        @Query("sort_by") sort_by: String = "created_at.asc",
+        @Query("page") page: Int = 1
+    ): Call<TrendingMainResponse>
+
+    //tv
+    @GET("account/{account_id}/favorite/tv")
+    fun getFavouriteTvList(
+        @Path("account_id") account_id: Int= AppConfig.account?.id!!,
+        @Query("api_key") apiKey: String = ApiConfig.API_KEY,
+        @Query("session_id") sessionId: String = AppConfig.sessionResponse?.sessionId!!,
+        @Query("language") language: String = "en-US",
+        @Query("sort_by") sort_by: String = "created_at.asc",
+        @Query("page") page: Int = 1
+    ): Call<TrendingMainResponse>
+
+    @GET("account/{account_id}/watchlist/tv")
+    fun getWatchListTv(
+        @Path("account_id") account_id: Int= AppConfig.account?.id!!,
+        @Query("api_key") apiKey: String = ApiConfig.API_KEY,
+        @Query("session_id") sessionId: String = AppConfig.sessionResponse?.sessionId!!,
+        @Query("language") language: String = "en-US",
+        @Query("sort_by") sort_by: String = "created_at.asc",
+        @Query("page") page: Int = 1
+    ): Call<TrendingMainResponse>
+
+    @GET("account/{account_id}/rated/tv")
+    fun getRateTvList(
+        @Path("account_id") account_id: Int= AppConfig.account?.id!!,
+        @Query("api_key") apiKey: String = ApiConfig.API_KEY,
+        @Query("session_id") sessionId: String = AppConfig.sessionResponse?.sessionId!!,
+        @Query("language") language: String = "en-US",
+        @Query("sort_by") sort_by: String = "created_at.asc",
+        @Query("page") page: Int = 1
+    ): Call<TrendingMainResponse>
 }

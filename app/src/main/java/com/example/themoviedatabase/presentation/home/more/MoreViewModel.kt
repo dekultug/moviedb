@@ -1,5 +1,6 @@
 package com.example.themoviedatabase.presentation.home.more
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.themoviedatabase.base.BaseViewModel
 import com.example.themoviedatabase.common.BOOLEAN_DEFAULT
@@ -24,10 +25,11 @@ import loading
 import onException
 import success
 
-class MoreViewModel : BaseViewModel() {
+open class MoreViewModel : BaseViewModel() {
 
-    private val repoMovie = RepoFactory.getMovieImpl()
-    private val repoAccount = RepoFactory.getAccountImpl()
+    protected val repoMovie = RepoFactory.getMovieImpl()
+    protected val repoAccount = RepoFactory.getAccountImpl()
+    protected val repoTv = RepoFactory.getTvImpl()
 
     private var _movieState = MutableStateFlow(FlowResult.newInstance<StateMovie>())
     val movieState = _movieState.asStateFlow()
@@ -77,7 +79,7 @@ class MoreViewModel : BaseViewModel() {
 
     fun getStateTv() {
         viewModelScope.launch(Dispatchers.IO) {
-            repoMovie.getStateTv(itemMovie?.id ?: INT_DEFAULT).onStart {
+            repoTv.getStateTv(itemMovie?.id ?: INT_DEFAULT).onStart {
                 _tvState.loading()
             }.onException {
                 _tvState.failure(it)
@@ -92,6 +94,7 @@ class MoreViewModel : BaseViewModel() {
                 } else {
                     0f
                 }
+                Log.d("tunglvv", "getStateTv: ${it.favorite}")
                 _tvState.success(it)
             }
         }

@@ -8,7 +8,7 @@ import com.example.themoviedatabase.base.adapter.BaseDiffUtilCallback
 import com.example.themoviedatabase.base.adapter.BaseVH
 import com.example.themoviedatabase.common.*
 import com.example.themoviedatabase.databinding.ItemOfListItemBinding
-import com.example.themoviedatabase.domain.model.trending.createdlist.CreatedListResponse
+import com.example.themoviedatabase.domain.model.list.alllist.CreatedListResponse
 
 class AddToListAdapter : BaseAdapter() {
 

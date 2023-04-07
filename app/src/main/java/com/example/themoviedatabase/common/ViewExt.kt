@@ -1,10 +1,13 @@
 package com.example.themoviedatabase.common
 
+import android.R
 import android.app.Activity
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.text.InputFilter
+import android.text.InputFilter.LengthFilter
 import android.text.SpannableString
 import android.text.TextPaint
 import android.util.DisplayMetrics
@@ -27,37 +30,6 @@ fun View.setOnSafeClick(
         override fun onDebouncedClick(v: View) = click(v)
     })
 }
-
-fun View.setOnSafeGlobalClick(
-    delayBetweenClicks: Long = DEFAULT_DEBOUNCE_INTERVAL,
-    click: (view: View) -> Unit
-) {
-    setOnClickListener(object : GlobalDebouncedOnClickListener(delayBetweenClicks) {
-        override fun onDebouncedClick(v: View) = click(v)
-    })
-}
-
-fun View.setOnScaleClick(action: (() -> Unit)) {
-    setOnSafeClick {
-        scaleAnimation()
-        action()
-    }
-}
-
-fun View.scaleAnimation() {
-    animate()
-        .scaleX(1.3f)
-        .scaleY(1.3f)
-        .setDuration(150)
-        .setInterpolator(DecelerateInterpolator())
-        .withEndAction {
-            ViewCompat.animate(this)
-                .scaleX(1.0f)
-                .scaleY(1.0f)
-                .setDuration(50).interpolator = AccelerateInterpolator()
-        }
-}
-
 fun View.show() {
     this.visibility = View.VISIBLE
 }
@@ -192,4 +164,14 @@ fun TextView.gradientApp(text: String?) {
         Color.parseColor("#21B9B5"),
         Color.parseColor("#066386")), null, Shader.TileMode.CLAMP)
     this.paint.shader = textShader
+}
+
+fun TextView.setLimitMaxLength(length: Int = 100){
+    val filterArray = arrayOfNulls<InputFilter>(1)
+    filterArray[0] = LengthFilter(length)
+    this.filters = filterArray
+}
+
+fun TextView.disableLimitLength(){
+    this.filters = arrayOf()
 }

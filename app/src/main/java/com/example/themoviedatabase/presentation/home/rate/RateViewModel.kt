@@ -21,6 +21,7 @@ import success
 class RateViewModel : BaseViewModel() {
 
     private val repoMovie = RepoFactory.getMovieImpl()
+    private val repoTv = RepoFactory.getTvImpl()
 
     private val _createRateState = MutableStateFlow(FlowResult.newInstance<MovieResponse>())
     val createRateState = _createRateState.asStateFlow()
@@ -66,7 +67,7 @@ class RateViewModel : BaseViewModel() {
 
             val ratedRequest = Rated(value = (valuesRate * 2).toFloat())
 
-            repoMovie.rateTv(tvId = itemMovie?.id ?: INT_DEFAULT, rated = ratedRequest)
+            repoTv.rateTv(tvId = itemMovie?.id ?: INT_DEFAULT, rated = ratedRequest)
                 .onStart {
                     _rateTvState.loading()
                 }
@@ -100,7 +101,7 @@ class RateViewModel : BaseViewModel() {
     fun deleteTvRate() {
         viewModelScope.launch(Dispatchers.IO) {
 
-            repoMovie.deleteTvRate(tvId = itemMovie?.id ?: INT_DEFAULT)
+            repoTv.deleteTvRate(tvId = itemMovie?.id ?: INT_DEFAULT)
                 .onStart {
                     _deleteTvRateState.loading()
                 }

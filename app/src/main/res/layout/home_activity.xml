@@ -125,6 +125,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dimen_16"
                         android:elevation="@dimen/dimen_10"
+                        app:fv_type="TRENDING"
                         app:layout_constraintStart_toEndOf="@id/tvHomeMovie"
                         app:layout_constraintTop_toTopOf="@id/tvHomeMovie" />
 
@@ -155,6 +156,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dimen_16"
                         android:elevation="@dimen/dimen_10"
+                        app:fv_type="TRENDING"
                         app:layout_constraintStart_toEndOf="@id/tvHomeTv"
                         app:layout_constraintTop_toTopOf="@id/tvHomeTv" />
 

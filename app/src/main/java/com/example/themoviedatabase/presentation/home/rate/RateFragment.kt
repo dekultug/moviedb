@@ -98,6 +98,7 @@ class RateFragment : BaseBindingFragment<RateFragmentBinding>(R.layout.rate_frag
                 override fun onSuccess() {
                     if (it.data != null) {
                         Toast.makeText(requireContext(), "Bạn đã đánh giá movie với ${viewModel.valuesRate} sao", Toast.LENGTH_SHORT).show()
+                        EventBusManager.instance?.postPending(RateMovieSuccess(getAppString(R.string._movie)))
                         backFragment()
                     }
                 }
@@ -108,7 +109,8 @@ class RateFragment : BaseBindingFragment<RateFragmentBinding>(R.layout.rate_frag
             handleUiState(it, object : IViewListener {
                 override fun onSuccess() {
                     if (it.data != null) {
-                        Toast.makeText(requireContext(), "Bạn đã đánh giá movie với ${viewModel.valuesRate} sao", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Bạn đã đánh giá tv với ${viewModel.valuesRate} sao", Toast.LENGTH_SHORT).show()
+                        EventBusManager.instance?.postPending(RateMovieSuccess(getAppString(R.string._tv)))
                         backFragment()
                     }
                 }
