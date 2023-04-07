@@ -20,7 +20,7 @@ class RecommendAdapter : BaseAdapter() {
             super.onBind(data)
 
             binding.ivRecommendImage.loadImage(data.getImageRecommend())
-            binding.tvRecommendName.text = data.title
+            binding.tvRecommendName.text = data.getTitleRecommend()
 
         }
     }

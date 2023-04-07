@@ -9,8 +9,10 @@ import com.example.themoviedatabase.R
 import com.example.themoviedatabase.base.component.BaseBindingActivity
 import com.example.themoviedatabase.common.extension.getFirstString
 import com.example.themoviedatabase.common.getAppString
+import com.example.themoviedatabase.common.setOnSafeClick
 import com.example.themoviedatabase.databinding.HomeActivityBinding
 import com.example.themoviedatabase.domain.model.trending.movie.TrendingResponse
+import com.example.themoviedatabase.presentation.account.AccountActivity
 import com.example.themoviedatabase.presentation.detail.DetailActivity
 import com.example.themoviedatabase.presentation.detail.DetailActivity.Companion.ITEM_TRENDING_KEY
 import com.example.themoviedatabase.presentation.home.more.MoreFragment
@@ -60,6 +62,10 @@ class HomeActivity : BaseBindingActivity<HomeActivityBinding>(R.layout.home_acti
             override fun canScrollVertically(): Boolean {
                 return false
             }
+        }
+
+        binding.tvHomeAccount.setOnSafeClick {
+            navigateTo(AccountActivity::class.java)
         }
 
         movieAdapter.listener = object : IMoreListener {

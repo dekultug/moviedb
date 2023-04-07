@@ -24,6 +24,10 @@ data class ResultRecommend(
     @Expose
     var title: String? = null,
 
+    @SerializedName("name")
+    @Expose
+    var name: String? = null,
+
     @SerializedName("original_language")
     @Expose
     var originalLanguage: String? = null,
@@ -70,5 +74,9 @@ data class ResultRecommend(
 ) {
     fun getImageRecommend(): String {
         return backdropPath?.domainLinkImage() ?: posterPath?.domainLinkImage() ?: STRING_DEFAULT
+    }
+
+    fun getTitleRecommend(): String {
+        return title ?: name ?: STRING_DEFAULT
     }
 }

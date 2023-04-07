@@ -44,6 +44,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".presentation.account.AccountActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
 

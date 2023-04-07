@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#183748">
+
+        <TextView
+            android:id="@+id/tvAccountHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_primary"
+            android:elevation="@dimen/dimen_10"
+            android:fontFamily="@font/svn_medium"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dimen_10"
+            android:text="@string/account"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_text_size_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivAccountHeaderBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:elevation="@dimen/dimen_10"
+            android:focusable="true"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:padding="@dimen/dimen_10"
+            android:src="@drawable/ic_white_back"
+            app:layout_constraintBottom_toBottomOf="@id/tvAccountHeader"
+            app:layout_constraintStart_toStartOf="@id/tvAccountHeader"
+            app:layout_constraintTop_toTopOf="@id/tvAccountHeader" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivAccountAvatar"
+            android:layout_width="@dimen/dimen_60"
+            android:layout_height="@dimen/dimen_60"
+            android:layout_margin="@dimen/dimen_16"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAccountHeader"
+            app:shapeAppearanceOverlay="@style/CircleImageView"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvAccountName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:fontFamily="@font/svn_medium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_text_size_14"
+            app:layout_constraintBottom_toBottomOf="@id/ivAccountAvatar"
+            app:layout_constraintStart_toEndOf="@id/ivAccountAvatar"
+            app:layout_constraintTop_toTopOf="@id/ivAccountAvatar"
+            tools:text="Luu Van Tung" />
+
+        <com.example.themoviedatabase.presentation.widget.TabLayout
+            android:id="@+id/tbAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAccountAvatar" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vpAccount"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbAccount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
