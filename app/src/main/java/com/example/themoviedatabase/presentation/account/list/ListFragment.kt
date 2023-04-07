@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.themoviedatabase.R
 import com.example.themoviedatabase.base.component.BaseBindingFragment
 import com.example.themoviedatabase.common.event.CreateListSuccess
+import com.example.themoviedatabase.common.gone
 import com.example.themoviedatabase.common.setOnSafeClick
+import com.example.themoviedatabase.common.show
 import com.example.themoviedatabase.databinding.ListFragmentBinding
 import com.example.themoviedatabase.presentation.account.AccountViewModel
 import com.example.themoviedatabase.presentation.addtolist.createlist.CreateListFragment
@@ -62,6 +64,13 @@ class ListFragment : BaseBindingFragment<ListFragmentBinding>(R.layout.list_frag
                 override fun onSuccess() {
                     if (it.data != null) {
                         adapter.submitList(it.data)
+                        if (it.data!!.isEmpty()){
+                            binding.rvList.gone()
+                            binding.ivListNoData.show()
+                        }else{
+                            binding.rvList.show()
+                            binding.ivListNoData.gone()
+                        }
                     }
                 }
             })

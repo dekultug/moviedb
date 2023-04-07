@@ -6,6 +6,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.themoviedatabase.R
 import com.example.themoviedatabase.base.component.BaseBindingFragment
+import com.example.themoviedatabase.common.gone
+import com.example.themoviedatabase.common.show
 import com.example.themoviedatabase.databinding.WatchListAccountFragmentBinding
 import com.example.themoviedatabase.domain.model.trending.movie.TrendingResponse
 import com.example.themoviedatabase.presentation.account.AccountViewModel
@@ -70,6 +72,13 @@ class WatchListFragment : BaseBindingFragment<WatchListAccountFragmentBinding>(R
                     Log.d(TAG, "onSuccess: ${it.data?.size}")
                     if (it.data != null) {
                         adapter.submitList(it.data)
+                        if (it.data!!.isEmpty()){
+                            binding.ivWatchListNoData.show()
+                            binding.rvWatchList.gone()
+                        }else{
+                            binding.ivWatchListNoData.gone()
+                            binding.rvWatchList.show()
+                        }
                     }
                 }
             })

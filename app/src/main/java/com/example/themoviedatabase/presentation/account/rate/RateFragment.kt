@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.themoviedatabase.R
 import com.example.themoviedatabase.base.component.BaseBindingFragment
 import com.example.themoviedatabase.common.FLOAT_DEFAULT
+import com.example.themoviedatabase.common.gone
+import com.example.themoviedatabase.common.show
 import com.example.themoviedatabase.databinding.RateAccountFragmentBinding
 import com.example.themoviedatabase.domain.model.trending.movie.TrendingResponse
 import com.example.themoviedatabase.presentation.account.AccountViewModel
@@ -82,6 +84,13 @@ class RateFragment : BaseBindingFragment<RateAccountFragmentBinding>(R.layout.ra
                     Log.d(TAG, "onSuccess: ${it.data?.size}")
                     if (it.data != null) {
                         adapter.submitList(it.data)
+                        if (it.data!!.isEmpty()){
+                            binding.ivRateNoData.show()
+                            binding.rvRate.gone()
+                        }else{
+                            binding.ivRateNoData.gone()
+                            binding.rvRate.show()
+                        }
                     }
                 }
             })

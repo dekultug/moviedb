@@ -6,6 +6,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.themoviedatabase.R
 import com.example.themoviedatabase.base.component.BaseBindingFragment
+import com.example.themoviedatabase.common.gone
+import com.example.themoviedatabase.common.show
 import com.example.themoviedatabase.databinding.FavouriteAccountFragmentBinding
 import com.example.themoviedatabase.domain.model.trending.movie.TrendingResponse
 import com.example.themoviedatabase.presentation.account.AccountViewModel
@@ -31,14 +33,14 @@ class FavouriteFragment : BaseBindingFragment<FavouriteAccountFragmentBinding>(R
         binding.fvFavourite.listener = object : FilterView.IFilterViewCallback {
             override fun onFilter(content: String) {
                 viewModel.mediaType = content
-                when(content){
+                when (content) {
                     getString(R.string._movie) -> viewModel.getFavouriteMovieList()
                     getString(R.string._tv) -> viewModel.getFavouriteTvList()
                 }
             }
         }
 
-        adapter.listener = object: InputAccountAdapter.IListener{
+        adapter.listener = object : InputAccountAdapter.IListener {
             override fun onDeleteFavourite(item: TrendingResponse) {
                 viewModel.isFavourite = false
                 val newItem = item.copy()
@@ -72,6 +74,13 @@ class FavouriteFragment : BaseBindingFragment<FavouriteAccountFragmentBinding>(R
                     Log.d(TAG, "onSuccess: ${it.data?.size}")
                     if (it.data != null) {
                         adapter.submitList(it.data)
+                        if (it.data!!.isEmpty()) {
+                            binding.rvFavourite.gone()
+                            binding.ivFavouriteNoData.show()
+                        } else {
+                            binding.rvFavourite.show()
+                            binding.ivFavouriteNoData.gone()
+                        }
                     }
                 }
             })
