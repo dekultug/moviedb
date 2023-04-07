@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@color/app_primary">
+
+        <TextView
+            android:id="@+id/tvFavouriteTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10"
+            android:fontFamily="@font/svn_medium"
+            android:padding="@dimen/dimen_10"
+            android:text="@string/favorite"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.themoviedatabase.presentation.widget.filter.FilterView
+            android:id="@+id/fvFavourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4"
+            android:elevation="@dimen/dimen_10"
+            app:fv_type="ACCOUNT"
+            app:layout_constraintStart_toEndOf="@id/tvFavouriteTitle"
+            app:layout_constraintTop_toTopOf="@id/tvFavouriteTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFavourite"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFavouriteTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

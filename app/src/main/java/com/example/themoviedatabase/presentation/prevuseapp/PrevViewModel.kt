@@ -5,7 +5,7 @@ import com.example.themoviedatabase.R
 import com.example.themoviedatabase.base.BaseViewModel
 import com.example.themoviedatabase.common.getAppString
 import com.example.themoviedatabase.common.thread.FlowResult
-import com.example.themoviedatabase.domain.model.accout.AccountResponse
+import com.example.themoviedatabase.domain.model.accout.detail.AccountResponse
 import com.example.themoviedatabase.domain.model.authen.SessionResponse
 import com.example.themoviedatabase.domain.model.authen.TokenResponse
 import com.example.themoviedatabase.domain.model.trending.movie.TrendingResponse

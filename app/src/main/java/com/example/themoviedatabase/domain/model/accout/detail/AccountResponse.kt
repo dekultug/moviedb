@@ -1,5 +1,6 @@
-package com.example.themoviedatabase.domain.model.accout
+package com.example.themoviedatabase.domain.model.accout.detail
 
+import com.example.themoviedatabase.common.extension.STRING_DEFAULT
 import com.example.themoviedatabase.data.network.IApiResponse
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

@@ -3,9 +3,10 @@ package com.example.themoviedatabase.presentation.addtolist.createlist
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.themoviedatabase.R
-import com.example.themoviedatabase.base.eventbus.EventBusManager
 import com.example.themoviedatabase.base.component.BaseBindingFragment
+import com.example.themoviedatabase.base.eventbus.EventBusManager
 import com.example.themoviedatabase.common.event.CreateListSuccess
 import com.example.themoviedatabase.common.setOnSafeClick
 import com.example.themoviedatabase.databinding.CreateListFragmentBinding
@@ -13,6 +14,8 @@ import com.example.themoviedatabase.domain.model.list.createlist.CreateListReque
 import com.example.themoviedatabase.presentation.model.IViewListener
 import coroutinesLaunch
 import handleUiState
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class CreateListFragment : BaseBindingFragment<CreateListFragmentBinding>(R.layout.create_list_fragment) {
 
@@ -58,11 +61,13 @@ class CreateListFragment : BaseBindingFragment<CreateListFragmentBinding>(R.layo
                     if (it.data != null) {
                         Toast.makeText(requireContext(), "Tạo list thành công", Toast.LENGTH_SHORT).show()
                         EventBusManager.instance?.postPending(CreateListSuccess())
-                        backFragment()
+                        lifecycleScope.launch {
+                            delay(300)
+                            backFragment()
+                        }
                     }
                 }
             })
         }
     }
-
 }

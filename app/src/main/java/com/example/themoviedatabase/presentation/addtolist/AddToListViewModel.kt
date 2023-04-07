@@ -6,7 +6,7 @@ import com.example.themoviedatabase.common.INT_DEFAULT
 import com.example.themoviedatabase.common.thread.FlowResult
 import com.example.themoviedatabase.domain.model.list.movie.MovieRequest
 import com.example.themoviedatabase.domain.model.list.movie.MovieResponse
-import com.example.themoviedatabase.domain.model.trending.createdlist.CreatedListResponse
+import com.example.themoviedatabase.domain.model.list.alllist.CreatedListResponse
 import com.example.themoviedatabase.factory.RepoFactory
 import data
 import failure

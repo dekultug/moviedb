@@ -1,11 +1,12 @@
 package com.example.themoviedatabase.domain.model.trending.movie
 
 import android.os.Parcelable
-import com.example.themoviedatabase.AppConfig
 import com.example.themoviedatabase.common.STRING_DEFAULT
 import com.example.themoviedatabase.common.extension.domainLinkImage
+import com.example.themoviedatabase.data.network.IApiResponse
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -46,9 +47,19 @@ data class TrendingResponse(
 
     @SerializedName("original_name") @Expose var originalName: String? = null,
 
-    @SerializedName("profile_path") @Expose var profilePath: String? = null
+    @SerializedName("profile_path") @Expose var profilePath: String? = null,
 
-) : Parcelable {
+    @SerializedName("rating") @Expose var rating: Float? = null,
+
+    var isFavourite: Boolean? = false,
+
+    var isWatchList: Boolean? = false,
+
+    var isRate: Boolean? = false,
+
+    var inputType: INPUT_TYPE? = null
+
+) : Parcelable, IApiResponse {
 
     private fun getImage(): String {
         return posterPath ?: profilePath ?: STRING_DEFAULT
@@ -69,5 +80,9 @@ data class TrendingResponse(
     fun getProgress(): Int {
         if (popularity == null) return 0
         return popularity!!.toInt()
+    }
+
+    enum class INPUT_TYPE {
+        FAVOURITE, WATCHLIST, RATE
     }
 }

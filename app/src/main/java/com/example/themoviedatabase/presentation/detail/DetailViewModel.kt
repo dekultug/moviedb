@@ -22,9 +22,6 @@ class DetailViewModel : MoreViewModel() {
     private var _detailTvTrendingState = MutableStateFlow(FlowResult.newInstance<List<Any>>())
     val detailTvTrendingState = _detailTvTrendingState.asStateFlow()
 
-    private var repoMovie = RepoFactory.getMovieImpl()
-    private var repoTv = RepoFactory.getTvImpl()
-
     private var dataOfPartTrending: BelongsToCollection? = null
 
     var idTrending: TrendingResponse? = null

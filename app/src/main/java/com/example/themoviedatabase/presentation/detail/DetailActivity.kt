@@ -37,7 +37,7 @@ class DetailActivity : BaseBindingActivity<DetailActivityBinding>(R.layout.detai
         viewModel.idTrending = intent?.getParcelableExtra(ITEM_TRENDING_KEY)
         viewModel.itemMovie = viewModel.idTrending
 
-        Log.d(TAG, "onPrepareInitView: ${viewModel.itemMovie?.mediaType}")
+        Log.d(TAG, "onPrepareInitView: ${viewModel.itemMovie}")
         when (viewModel.itemMovie?.mediaType) {
             getString(R.string._movie) -> {
                 viewModel.getStateMovie()

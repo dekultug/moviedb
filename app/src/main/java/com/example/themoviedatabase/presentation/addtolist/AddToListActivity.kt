@@ -6,11 +6,14 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.themoviedatabase.R
 import com.example.themoviedatabase.base.component.BaseBindingActivity
+import com.example.themoviedatabase.base.eventbus.EventBusManager
 import com.example.themoviedatabase.common.*
+import com.example.themoviedatabase.common.event.AddToListSuccess
 import com.example.themoviedatabase.common.event.CreateListSuccess
+import com.example.themoviedatabase.common.event.CreateListSuccessVersion2
 import com.example.themoviedatabase.databinding.AddToListActivityBinding
 import com.example.themoviedatabase.domain.model.list.movie.MovieRequest
-import com.example.themoviedatabase.domain.model.trending.createdlist.CreatedListResponse
+import com.example.themoviedatabase.domain.model.list.alllist.CreatedListResponse
 import com.example.themoviedatabase.presentation.addtolist.createlist.CreateListFragment
 import com.example.themoviedatabase.presentation.model.IViewListener
 import com.example.themoviedatabase.presentation.widget.searchview.ISearchListener
@@ -123,6 +126,7 @@ class AddToListActivity : BaseBindingActivity<AddToListActivityBinding>(R.layout
         when (event) {
             is CreateListSuccess -> {
                 viewModel.getCreatedList(1)
+                EventBusManager.instance?.postPending(CreateListSuccessVersion2())
                 EventBus.getDefault().removeStickyEvent(event);
             }
         }
@@ -154,6 +158,7 @@ class AddToListActivity : BaseBindingActivity<AddToListActivityBinding>(R.layout
                 override fun onSuccess() {
                     if (it.data != null) {
                         if (it.data!!.success == true) {
+                            EventBusManager.instance?.postPending(AddToListSuccess())
                             Toast.makeText(this@AddToListActivity, "thêm vào ${viewModel.createdListResponseSelect?.name} thành công", Toast.LENGTH_SHORT).show()
                             finish()
                         } else {

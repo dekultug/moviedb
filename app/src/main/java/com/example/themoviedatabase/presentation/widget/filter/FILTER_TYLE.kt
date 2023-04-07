@@ -1,7 +1,7 @@
 package com.example.themoviedatabase.presentation.widget.filter
 
 enum class FILTER_TYLE(var value: Int) {
-    MOVIE(0), TV(1), PERSON(2);
+    TRENDING(0),ACCOUNT(1);
 
     companion object {
         fun valueOfName(type: Int): FILTER_TYLE? {

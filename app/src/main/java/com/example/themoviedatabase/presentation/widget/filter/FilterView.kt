@@ -29,6 +29,7 @@ class FilterView constructor(
 
     init {
         LayoutInflater.from(ctx).inflate(R.layout.filter_view_layout, this, true)
+        initView(attrs)
     }
 
     override fun onFinishInflate() {
@@ -52,7 +53,20 @@ class FilterView constructor(
                 listener?.onFilter(content)
             }
         }
-        adapter.submitList(display.getListFilterDisplay())
+
+    }
+
+    private fun initView(attrs: AttributeSet?){
+        val ta = context.theme.obtainStyledAttributes(attrs, R.styleable.FilterView, 0, 0)
+
+        if (ta.hasValue(ta.getIndex(R.styleable.FilterView_fv_type))){
+            val filterType = ta.getInt(R.styleable.FilterView_fv_type, 0)
+            FILTER_TYLE.valueOfName(filterType)?.let {
+                adapter.submitList(display.getListFilterDisplay(it))
+            }
+        }
+
+        ta.recycle()
     }
 
     interface IFilterViewCallback {

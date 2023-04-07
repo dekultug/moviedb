@@ -1,4 +1,4 @@
-package com.example.themoviedatabase.domain.model.trending.createdlist
+package com.example.themoviedatabase.domain.model.list.alllist
 
 import com.example.themoviedatabase.data.network.IApiResponse
 import com.google.gson.annotations.Expose

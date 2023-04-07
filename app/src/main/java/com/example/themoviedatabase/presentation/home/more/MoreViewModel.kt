@@ -27,9 +27,9 @@ import success
 
 open class MoreViewModel : BaseViewModel() {
 
-    private val repoMovie = RepoFactory.getMovieImpl()
-    private val repoAccount = RepoFactory.getAccountImpl()
-    private val repoTv = RepoFactory.getTvImpl()
+    protected val repoMovie = RepoFactory.getMovieImpl()
+    protected val repoAccount = RepoFactory.getAccountImpl()
+    protected val repoTv = RepoFactory.getTvImpl()
 
     private var _movieState = MutableStateFlow(FlowResult.newInstance<StateMovie>())
     val movieState = _movieState.asStateFlow()

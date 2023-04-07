@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAccount"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#183748">
@@ -38,16 +39,24 @@
             app:layout_constraintStart_toStartOf="@id/tvAccountHeader"
             app:layout_constraintTop_toTopOf="@id/tvAccountHeader" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivAccountAvatar"
-            android:layout_width="@dimen/dimen_60"
-            android:layout_height="@dimen/dimen_60"
+        <TextView
+            android:id="@+id/tvAccount"
+            android:layout_width="@dimen/dimen_40"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginEnd="@dimen/dimen_12"
+            android:background="@drawable/shape_bg_white_oval"
+            android:clickable="true"
+            android:elevation="@dimen/dimen_10"
+            android:focusable="true"
+            android:fontFamily="@font/svn_medium"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:textColor="@color/app_primary"
+            android:textSize="@dimen/dimen_text_size_12"
             android:layout_margin="@dimen/dimen_16"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAccountHeader"
-            app:shapeAppearanceOverlay="@style/CircleImageView"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="L" />
 
         <TextView
             android:id="@+id/tvAccountName"
@@ -57,9 +66,9 @@
             android:fontFamily="@font/svn_medium"
             android:textColor="@color/white"
             android:textSize="@dimen/dimen_text_size_14"
-            app:layout_constraintBottom_toBottomOf="@id/ivAccountAvatar"
-            app:layout_constraintStart_toEndOf="@id/ivAccountAvatar"
-            app:layout_constraintTop_toTopOf="@id/ivAccountAvatar"
+            app:layout_constraintBottom_toBottomOf="@id/tvAccount"
+            app:layout_constraintStart_toEndOf="@id/tvAccount"
+            app:layout_constraintTop_toTopOf="@id/tvAccount"
             tools:text="Luu Van Tung" />
 
         <com.example.themoviedatabase.presentation.widget.TabLayout
@@ -69,7 +78,7 @@
             android:layout_marginTop="@dimen/dimen_10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAccountAvatar" />
+            app:layout_constraintTop_toBottomOf="@id/tvAccount" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vpAccount"

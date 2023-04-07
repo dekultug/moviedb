@@ -1,6 +1,6 @@
 package com.example.themoviedatabase
 
-import com.example.themoviedatabase.domain.model.accout.AccountResponse
+import com.example.themoviedatabase.domain.model.accout.detail.AccountResponse
 import com.example.themoviedatabase.domain.model.authen.SessionResponse
 import com.example.themoviedatabase.domain.model.authen.TokenResponse
 
